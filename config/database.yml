@@ -27,7 +27,6 @@ development:
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: new_blog
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -79,7 +78,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
   database: new_blog_production
   username: new_blog
   password: <%= ENV["NEW_BLOG_DATABASE_PASSWORD"] %>
