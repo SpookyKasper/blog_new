@@ -1,21 +1,21 @@
 databases:
-  - name: mysite
+  - name: new_blog
     databaseName: new_blog_development
-    user: mysite
+    user: new_blog
     plan: free
 
 services:
   - type: web
-    name: mysite
+    name: new_blog
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "./bin/rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: "./bin/rails server"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: new_blog_development
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
